@@ -51,3 +51,15 @@ func TestHitungKeliling(t *testing.T) {
 // jika hanya ingin menjalankan 1 function unit test bisa denga menggunakan command
 // go test -run ^TestFunction$ namaModule -v
 // example : go test -run ^TestHitungLuas$ github.com/fanialfi/go-unit-test -v
+
+// benchmarking
+// package testing selain digunakan untuk melakukan testing, juga bisa digunakan untuk melakukan benchmarking, cara pembuatannya sama seperti cara pembuatan function untuk testing
+// bedanya nama awal function diawali dengan kata Benchmark dan memiliki parameter pada function bertipe *testing.B
+
+func BenchmarkHitungLuas(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		kubus.Luas()
+	}
+}
+
+// untuk menjalankan function benchmark diikuti dengan argument -bench=.
